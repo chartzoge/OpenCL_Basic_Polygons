@@ -3,14 +3,18 @@
 
 class ConvexPolygon : public Graphic
 {
+private:
+	GLint _numberOfVerticies;
+	Color _polygonColor;
+
 protected:
 	ConvexPolygon();
-	ConvexPolygon(int numberOfVerticies, Color polygonColor);
+	ConvexPolygon(GLint numberOfVerticies, Color polygonColor);
 
-	int numberOfVerticies;
+	GLint numberOfVerticies;
 	Point points[];
 
-	virtual void draw();
+	virtual void draw() const;
 };
 
 #endif
