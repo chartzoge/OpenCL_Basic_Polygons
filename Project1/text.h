@@ -6,6 +6,11 @@ class Text : public Graphic
 public:
 	Text(Color textColor, Point textLocation, string textToDisplay);
 	virtual void draw() const;
+
+private:
+	Color _textColor;
+	Point _textLocation;
+	string _textToDisplay;
 };
 
 
