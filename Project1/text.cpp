@@ -7,21 +7,17 @@ Text::Text(Color textColor, Point textLocation, string textToDisplay) : Text::Gr
 }
 
 void Text::draw() const {
-	char *characters = new char[_textToDisplay.size() + 1];
-	characters[_textToDisplay.size()] = 0;
-
-	// create array of characters to loop over
-	memcpy(characters, _textToDisplay.c_str(), _textToDisplay.size());
-
 	cout << "Writing characters out to scene: " << _textToDisplay << endl;
 
-	// drawing text to coordinates 0, 0; aka, center of screen
+	// color it red
 	glColor3f(1.0, 0.0, 0.0);
+	// drawing text to coordinates 0, 0; aka, center of screen
 	glRasterPos2i(0, 0);
 
 	for (int charIndex = 0; charIndex < _textToDisplay.size(); charIndex++) {
-		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, characters[charIndex]);
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, _textToDisplay[charIndex]);
 	}
 
+	// need to call flush after any set of commands are issuee
 	glFlush();
 } 
